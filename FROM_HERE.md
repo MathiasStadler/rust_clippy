@@ -14,6 +14,11 @@ mkdir examples
 cp ./src/main.rs examples/
 sed -i 's/world/example/' ./examples/main.rs
 cargo run --example main
+# init first git repo
+export PS1='\w$(__git_ps1 " (%s)")\$ '
+git add -f *
+git add -f .gitignore
+git commit -m "init commit"
 cargo check
 cargo clippy --no-deps --fix --
 cargo clippy --no-deps --fix --examples --
